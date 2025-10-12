@@ -1,0 +1,48 @@
+name: Java CI - Maven with JUnit 5
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Set up Java 17
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # 3. Build project with Maven
+      - name: Build with Maven
+        run: mvn -B clean package
+
+      # 4. Run Tests and fail on errors
+      - name: Run Tests
+        run: mvn test --fail-at-end
+
+      # 5. Publish test results to GitHub Actions UI
+      - name: Publish JUnit Test Results
+        uses: dorny/test-reporter@v1
+        with:
+          name: JUnit Tests
+          path: target/surefire-reports/*.xml
+          reporter: junit
+          fail-on-error: true
+
+      # 6. Upload raw test results as artifacts
+      - name: Upload Test Artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-results
+          path: target/surefire-reports/*.xml
