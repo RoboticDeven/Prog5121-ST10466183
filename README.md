@@ -34,7 +34,7 @@ Ensures all inputs follow strict formatting and security requirements.
 
 ###  Input Validation Rules
 
-| Field           | Validation Rule                                         | Example (✅)      | Invalid (❌)   |
+| Field           | Validation Rule                                         | Example (✓)      | Invalid (✗)   |
 |-----------------|--------------------------------------------------------|-------------------|---------------|
 | **Username**    | Must contain `_` and be ≤ 5 characters                 | `kyl_1`           | `username`    |
 | **Password**    | ≥ 8 chars, includes uppercase, lowercase, number, and special char | `Ch&&sec@ke99!`   | `password`    |
