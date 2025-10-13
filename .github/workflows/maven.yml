@@ -34,8 +34,8 @@ jobs:
         run: mvn -B clean install
 
       # Now build part1, which depends on part2
-      - name: Build part 1
-        working-directory: part 1
+      - name: Build part1
+        working-directory: part1
         run: mvn -B clean package
 
       # Optional: update dependency graph for Dependabot
