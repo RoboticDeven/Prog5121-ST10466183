@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Required for the dependency graph step
 permissions:
   contents: write
   security-events: write
@@ -15,17 +16,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
+      - name: Verify Java version
+        run: java -version
 
+      - name: Build with Maven
+        run: mvn -B clean package --file pom.xml
+
+      # Optional: Upload dependency graph for Dependabot
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@v4
