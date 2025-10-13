@@ -29,13 +29,13 @@ jobs:
         run: java -version
 
       # Build and install part2 first (so part1 can depend on it)
-      - name: Build and install part2
-        working-directory: part2
+      - name: Build and install part 2
+        working-directory: part 2
         run: mvn -B clean install
 
       # Now build part1, which depends on part2
-      - name: Build part1
-        working-directory: part1
+      - name: Build part 1
+        working-directory: part 1
         run: mvn -B clean package
 
       # Optional: update dependency graph for Dependabot
