@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI with Maven (multi-module with dependency)
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-# Required for the dependency graph step
 permissions:
   contents: write
   security-events: write
@@ -29,9 +28,16 @@ jobs:
       - name: Verify Java version
         run: java -version
 
-      - name: Build with Maven
-        run: mvn -B clean package --file pom.xml
+      # Build and install part2 first (so part1 can depend on it)
+      - name: Build and install part2
+        working-directory: part2
+        run: mvn -B clean install
 
-      # Optional: Upload dependency graph for Dependabot
+      # Now build part1, which depends on part2
+      - name: Build part1
+        working-directory: part1
+        run: mvn -B clean package
+
+      # Optional: update dependency graph for Dependabot
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@v4
