@@ -1,0 +1,28 @@
+https://github.com/RoboticDeven/Prog5121-ST10466183.git
+
+# Prog5121-ST10466183
+
+This repository contains a Java project with the following structure:
+
+## Project Structure
+
+- `.idea` - IntelliJ IDEA project settings
+- `.vscode` - VS Code project settings
+- `src/`
+    - `main/`
+        - `java/`
+            - `com/`
+                - `example/`
+                    - `Login.java` - Main login logic
+                    - `Main.java` - Application entry point
+        - `resources/` - Application resources
+    - `test/`
+        - `java/`
+            - `LoginTest.java` - Unit tests for login functionality
+- `target/` - Build output directory
+- `Github link.txt` - Contains the repository URL
+- `pom.xml` - Maven project configuration
+
+## Getting Started
+
+Clone the repository:
