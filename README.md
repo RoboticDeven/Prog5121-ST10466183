@@ -46,6 +46,7 @@ Ensures all inputs follow strict formatting and security requirements.
 
 ###  Message Features
 Each message includes:
+- **Message Number**
 - **Message ID** (10-digit random number)
 - **Recipient number** (+27 format)
 - **Content**
@@ -97,8 +98,8 @@ Prog5121-ST10466183/
 │   │   ├── java/com/example/
 │   │   │   ├── Login.java         # Handles registration and login logic
 │   │   │   ├── Main.java          # Entry point of the application
-│   │   │   ├── MainGUI.java       # Swing-based GUI (Registration, Login, Chat)
-│   │   │   └── Message.java       # Handles message creation, storage, validation
+│   │   │   |── Message.java       # Handles message creation, storage, validation
+│   │   │      
 │   │   └── resources/
 │   └── test/java/
 │       ├── LoginTest.java         # JUnit tests for Login class
@@ -112,30 +113,116 @@ Prog5121-ST10466183/
 
 ##  Example Run
 
-```
--- Registration --
-Enter a Username (must have '_' and ≤5 characters): kyl_1
-Username successfully captured.
-Enter Name: John
-Enter Surname: Doe
-Enter Password (min 8 chars with uppercase, number, special): Password1!
-Password successfully captured.
-Enter Phone Number (must include +27): +27821234567
-Phone number successfully added.
+```# QuickChat Example Session
 
-Registration complete. Now please log in.
+## QuickChat Menu
+1. Register  
+2. Login  
+3. Quick Chat  
+4. Show recently sent messages (Coming soon!)  
+5. Quit  
 
--- Login --
-Enter username: kyl_1
-Enter password: Password1!
-Welcome John Doe, it is great to see you again.
+---
 
--- Quick Chat --
-Recipient (+27 format): +27888968976
-Message: Hi there, let’s meet up later!
-Choose Action: [Send Now | Store Message | Disregard]
-Message sent.
-Quit
+**Select an option:** `1`  
+- Enter Username (must have _ and <=5 chars): `user_`
+- Enter Password (min 8 chars, capital, number, special): `Passw0rd!`
+- Enter Phone (+27 format): `+27831234567`
+- Enter Name: `Alice`
+- Enter Surname: `Smith`
+
+**Registration successful!**
+
+---
+
+## QuickChat Menu
+1. Register  
+2. Login  
+3. Quick Chat  
+4. Show recently sent messages (Coming soon!)  
+5. Quit  
+
+**Select an option:** `2`  
+- Enter Username: `user_`
+- Enter Password: `Passw0rd!`
+
+**Welcome to QuickChat! Alice Smith**  
+How many messages would you like to send? `2`
+
+---
+
+## QuickChat Menu
+1. Register  
+2. Login  
+3. Quick Chat  
+4. Show recently sent messages (Coming soon!)  
+5. Quit  
+
+**Select an option:** `3`  
+- Enter recipient (+27 format): `+27831239999`
+- Enter message: `Hey there! How’s it going?`
+
+Choose what to do with this message:  
+1. Send Now  
+2. Store for Later  
+3. Disregard  
+
+**Enter choice:** `1`  
+**Message sent successfully!**
+
+> [Popup displayed with message details]  
+> - Message Number: 1  
+> - Message ID: MSG-001  
+> - Recipient: +27831239999  
+> - Message: Hey there! How’s it going?  
+> - Message Hash: 6f9a1c2d7e...
+
+---
+
+- Enter recipient (+27 format): `+27830001111`
+- Enter message: `Meeting at 3pm today.`
+
+Choose what to do with this message:  
+1. Send Now  
+2. Store for Later  
+3. Disregard  
+
+**Enter choice:** `2`  
+**Message stored successfully!**
+
+---
+
+**You've reached your message limit.**
+
+---
+
+## QuickChat Menu
+1. Register  
+2. Login  
+3. Quick Chat  
+4. Show recently sent messages (Coming soon!)  
+5. Quit  
+
+**Select an option:** `4`  
+**Recently stored messages:**
+
+- Message ID: (random 10 digits)  
+- Recipient: +27830001111  
+- Content: Meeting at 3pm today.  
+- Hash: (unique identifier)
+
+---
+
+## QuickChat Menu
+1. Register  
+2. Login  
+3. Quick Chat  
+4. Show recently sent messages (Coming soon!)  
+5. Quit  
+
+**Select an option:** `5`  
+Thank you, hope to see you soon.  
+**Total messages sent:** 2
 ```
 
 ---
