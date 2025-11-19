@@ -27,8 +27,15 @@ jobs:
       - name: Verify Java version
         run: java -version
 
-      - name: Build all modules
-        run: mvn -B clean package
+      - name: Build and run tests
+        run: mvn -B clean verify
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: "**/target/surefire-reports/*.xml"
 
       - name: Update dependency graph
         uses: advanced-security/maven-dependency-submission-action@v4
