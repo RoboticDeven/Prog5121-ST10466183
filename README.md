@@ -65,6 +65,14 @@ Users can choose to:
 - Messages can be printed using `Message.printMessages()`.
 
 ---
+## Message Reporting & Search Features
+- Displays all senders and recipients of sent messages
+- Finds and returns the longest sent message
+- Searches for a message by its unique message ID
+- Searches for all messages sent to a specific recipient
+- Deletes a message based on its hash value
+- Generates a full report of all sent messages, including ID, recipient, content, and hash
+- Stores all sent messages into a JSON file for persistence
 
 ##  Testing
 
@@ -77,14 +85,18 @@ JUnit 5 tests cover all **Login** and **Message** functionalities.
 - Login authentication (success/failure)
 
 ### `MessageTest.java`
-- Message length validation  
-- Recipient phone number validation  
-- Message ID and hash format checks  
-- File creation and JSON storage tests  
-- Array expansion (dynamic storage)  
-- Total messages counter  
-- Print all messages functionality  
-
+- Validates message length limits
+- Validates recipient phone number format
+- Checks message ID generation and hash format
+- Tests sending, storing, and disregarding messages
+- Verifies JSON file creation and storage of messages
+- Tests dynamic array expansion for messages
+- Tracks total number of messages
+- Confirms all messages can be printed
+- Ensures sent messages are correctly stored in memory
+- Searches messages by ID and by recipient
+- Finds the longest sent message
+- Deletes messages by their hash
 ---
 
 ##  Project Structure
@@ -115,114 +127,84 @@ Prog5121-ST10466183/
 
 ```# QuickChat Example Session
 
-## QuickChat Menu
-1. Register  
-2. Login  
-3. Quick Chat  
-4. Show recently sent messages (Coming soon!)  
-5. Quit  
+QuickChat Menu:
+1) Register
+2) Login
+3) Quick Chat
+4) Show recently sent messages
+5) Quit
+Select an option: 1
+Enter Username (must have _ and <=5 chars): user_
+Enter Password (min 8 chars, capital, number, special): Pass123!
+Enter Phone (+27 format): +27834567890
+Enter Name: John
+Enter Surname: Doe
+Registration successful!
 
----
+QuickChat Menu:
+1) Register
+2) Login
+3) Quick Chat
+4) Show recently sent messages
+5) Quit
+Select an option: 2
+Enter Username: user_1
+Enter Password: Pass123!
+Welcome to QuickChat! John Doe
+How many messages would you like to send? 1
 
-**Select an option:** `1`  
-- Enter Username (must have _ and <=5 chars): `user_`
-- Enter Password (min 8 chars, capital, number, special): `Passw0rd!`
-- Enter Phone (+27 format): `+27831234567`
-- Enter Name: `Alice`
-- Enter Surname: `Smith`
+QuickChat Menu:
+1) Register
+2) Login
+3) Quick Chat
+4) Show recently sent messages
+5) Quit
+Select an option: 3
+Enter recipient (+27 format): +27839876543
+Enter message: Hello, are you coming to lunch?
+Choose what to do with this message:
+1) Send Now
+2) Store for Later
+3) Disregard
+Enter choice: 1
+Message sent
 
-**Registration successful!**
+[Popup dialog appears:]
+QuickChat Message
+---------------------------
+Message ID: 0123456789
+Recipient: +27839876543
+Message: Hello, are you coming to lunch?
+Hash: 01:1:HelloLunch
 
----
+You have reached your message limit.
 
-## QuickChat Menu
-1. Register  
-2. Login  
-3. Quick Chat  
-4. Show recently sent messages (Coming soon!)  
-5. Quit  
+QuickChat Menu:
+1) Register
+2) Login
+3) Quick Chat
+4) Show recently sent messages
+5) Quit
+Select an option: 4
 
-**Select an option:** `2`  
-- Enter Username: `user_`
-- Enter Password: `Passw0rd!`
+Message Tools:
+1) Display senders & recipients
+2) Display longest message
+3) Search message by ID
+4) Search by recipient
+5) Delete message by hash
+6) Full sent messages report
+Choose: 1
+Sender: You → Recipient: +27839876543
 
-**Welcome to QuickChat! Alice Smith**  
-How many messages would you like to send? `2`
-
----
-
-## QuickChat Menu
-1. Register  
-2. Login  
-3. Quick Chat  
-4. Show recently sent messages (Coming soon!)  
-5. Quit  
-
-**Select an option:** `3`  
-- Enter recipient (+27 format): `+27831239999`
-- Enter message: `Hey there! How’s it going?`
-
-Choose what to do with this message:  
-1. Send Now  
-2. Store for Later  
-3. Disregard  
-
-**Enter choice:** `1`  
-**Message sent successfully!**
-
-> [Popup displayed with message details]  
-> - Message Number: 1  
-> - Message ID: MSG-001  
-> - Recipient: +27831239999  
-> - Message: Hey there! How’s it going?  
-> - Message Hash: 6f9a1c2d7e...
-
----
-
-- Enter recipient (+27 format): `+27830001111`
-- Enter message: `Meeting at 3pm today.`
-
-Choose what to do with this message:  
-1. Send Now  
-2. Store for Later  
-3. Disregard  
-
-**Enter choice:** `2`  
-**Message stored successfully!**
-
----
-
-**You've reached your message limit.**
-
----
-
-## QuickChat Menu
-1. Register  
-2. Login  
-3. Quick Chat  
-4. Show recently sent messages (Coming soon!)  
-5. Quit  
-
-**Select an option:** `4`  
-**Recently stored messages:**
-
-- Message ID: (random 10 digits)  
-- Recipient: +27830001111  
-- Content: Meeting at 3pm today.  
-- Hash: (unique identifier)
-
----
-
-## QuickChat Menu
-1. Register  
-2. Login  
-3. Quick Chat  
-4. Show recently sent messages (Coming soon!)  
-5. Quit  
-
-**Select an option:** `5`  
-Thank you, hope to see you soon.  
-**Total messages sent:** 2
+QuickChat Menu:
+1) Register
+2) Login
+3) Quick Chat
+4) Show recently sent messages
+5) Quit
+Select an option: 5
+Goodbye! Total messages sent: 1
 ```
 
 ---
