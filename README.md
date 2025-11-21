@@ -149,7 +149,7 @@ QuickChat Menu:
 4) Show recently sent messages
 5) Quit
 Select an option: 2
-Enter Username: user_1
+Enter Username: user_
 Enter Password: Pass123!
 Welcome to QuickChat! John Doe
 How many messages would you like to send? 1
