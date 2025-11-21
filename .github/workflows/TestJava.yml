@@ -1,4 +1,4 @@
-name: Java CI - Automated Tests
+name: Java CI with Maven
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Verify Java version
+        run: java -version
+
       - name: Build and run tests
-        run: mvn -B clean test --file "./part 3/pom.xml"
+        run: mvn -B clean test
 
       - name: Upload test reports
         if: always()
