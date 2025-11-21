@@ -11,10 +11,11 @@ Java chatapp
 **QuickChat** is a Java Swing-based desktop application that allows users to:
 - Register an account with validation for username, password, and phone number.
 - Log in using their registered credentials.
-- Send, store, or disregard chat messages.
-- Save messages to a JSON file and review sent messages.
-
-It includes robust input validation, object-oriented design, and comprehensive **JUnit 5** test coverage for both **Login** and **Message** functionalities.
+- Send, store, or disregard chat messages with message length and recipient validation.
+- Save messages to a JSON file, review sent messages, search by ID or recipient, and delete messages by hash.
+- Display the longest message, view senders and recipients, and generate a full sent messages report.
+- Support dynamic message storage with automatic array expansion and unique message IDs and hashes.
+- It includes robust input validation, object-oriented design, and comprehensive **JUnit 5** test coverage for both **Login** and **Message** functionalities.
 
 ---
 
@@ -257,6 +258,10 @@ mvn clean compile
 - ChatGPT. (2025) Assistance with Java JUnit array handling and file storage. Personal communication with Thorn Scheepers, (Accessed: 9 October 2025).
 
 - GitHub Copilot. (2025) AI-assisted programming in Java for student projects. Available at: https://github.com/features/copilot (Accessed: 10 October 2025).
+- ChatGPT. (2025) Assistance with Unit Testing . Personal communication with Thorn Scheepers, (Accessed: 21 November 2025).
+- Farrell, J. (2023) Java Programming. 10th edn. pg 284-289.
+- GitHub. (2025) GitHub Copilot [AI code generation tool]. Response to query on code flow problem. Available at: https://github.com/features/copilot (Accessed: 18 November 2025)
+  
 
 
    # Licence
